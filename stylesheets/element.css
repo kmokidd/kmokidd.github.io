@@ -1,0 +1,11 @@
+/* re-define */
+section {
+  width: auto;
+  float: none;
+  padding-bottom: 0;
+}
+
+.about-w {
+  width: 960px;
+  margin: 0 auto;
+}

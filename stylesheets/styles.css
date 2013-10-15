@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+*{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 
 body {
   padding:50px;
@@ -8,7 +13,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
+  color:#D45A69;
   margin:0 0 20px;
 }
 
@@ -33,9 +38,12 @@ h3, h4, h5, h6 {
 }
 
 a {
-  color:#39c;
+  color:#BFE0D0;
   font-weight:400;
   text-decoration:none;
+}
+a:hover{
+  color: #D88D8A;
 }
 
 a small {
@@ -165,6 +173,9 @@ section {
   padding-bottom:50px;
 }
 
+li{
+  font-size: 16px;
+}
 small {
   font-size:11px;
 }
@@ -181,6 +192,11 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
+}
+
+.link-title{
+  font-size: 16px;
+  color: #D45A69;
 }
 
 @media print, screen and (max-width: 960px) {
