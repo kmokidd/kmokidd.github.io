@@ -1,11 +1,131 @@
+@charset "UTF-8";
+/* font-size */
+/* gradient */
+/* border-radius */
+/*box shadow */
+/*transition */
+/* some elements */
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
 /* re-define */
-section {
+html {
+  font-size: 62.5%;
+}
+
+.about-w {
+  font-size: 16px;
+  font-size: 1.6rem;
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: #ff4e50;
+  overflow: hidden;
+}
+.about-w section {
   width: auto;
   float: none;
   padding-bottom: 0;
 }
-
-.about-w {
-  width: 960px;
+.about-w header {
+  position: static;
+  width: auto;
+  float: none;
+}
+.about-w i {
+  margin-right: 10px;
+}
+.about-w .content {
+  float: left;
+}
+.about-w .base-nav {
+  float: right;
+}
+.about-w .about-s {
+  width: 70%;
+}
+.about-w .about-n {
+  width: 20%;
+}
+.about-w .about-n .about-item {
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  width: 80px;
   margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  background: #f9d423;
+  color: #f9d423;
+  margin-bottom: 20px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 9px 0px #db1f05;
+  -moz-box-shadow: 0px 9px 0px #db1f05;
+  -o-box-shadow: 0px 9px 0px #db1f05;
+  box-shadow: 0px 9px 0px #db1f05;
+  -webkit-transition: all all 0.1s ease ease-out;
+  -moz-transition: all all 0.1s ease ease-out;
+  -o-transition: all all 0.1s ease ease-out;
+  transition: all all 0.1s ease ease-out;
+}
+.about-w .about-n .about-item:active {
+  -webkit-box-shadow: 0px 3px 0px #db1f05;
+  -moz-box-shadow: 0px 3px 0px #db1f05;
+  -o-box-shadow: 0px 3px 0px #db1f05;
+  box-shadow: 0px 3px 0px #db1f05;
+  top: 6px;
+  color: #db1f05;
+}
+.about-w .photo {
+  margin-right: 20px;
+}
+.about-w .p-info {
+  overflow: hidden;
+}
+.about-w .p-info li {
+  font-size: 20px;
+  font-size: 2rem;
+}
+.about-w .base-art, .about-w .base-as {
+  display: none;
+}
+.about-w .active {
+  display: block;
+}
+.about-w .base-art, .about-w .base-as {
+  overflow: hidden;
+  padding: 20px;
+  background: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-family: "张海山锐线体简", "Helvetica Neue", Helvetica, '"Microsoft YaHei"', Arial, sans-serif;
+}
+.about-w .base-art .sub, .about-w .base-as .sub {
+  overflow: hidden;
+  padding: 0 0 20px 23px;
+}
+.about-w .base-art .sub-wrapper, .about-w .base-as .sub-wrapper {
+  overflow: hidden;
+}
+.about-w .base-art .strong, .about-w .base-as .strong {
+  font-weight: bold;
+}
+.about-w .base-art .sub-info, .about-w .base-as .sub-info {
+  width: 140px;
+  margin-right: 20px;
+}
+
+.dairy-w .base-f i {
+  margin-right: 10px;
 }
