@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>Lab</title>
 <style>
-*{ margin: 0;padding: 0; list-style-type: none;}
+*{ margin: 0;padding: 0; list-style-type: none;text-align: left;}
+.clearfix:after { content:""; height:0; visibility:hidden; display:block; clear:both; }
+.clearfix { zoom:1; }
+a{ text-decoration:none;}
+
 #arrows{ padding: 5px; border-bottom: 2px solid #ccc;}
 #arrows div{ display: inline-block; margin-right: 10px;}
 .arrow-up{width: 0;height: 0;border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 5px solid #000;}
@@ -12,9 +16,15 @@
 .arrow-left{width: 0;height: 0;border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #eee;}
 .arrow-right{width: 0;height: 0;border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 15px solid #ccc;}
 
-#absoluteCenter{ position: relative;overflow: auto;/*防止改变大小后的容器高宽很有可能会小于内容的高宽*/; resize: both;}
+
 .hasHeight{ height: 100px; width: 40px; border: 1px solid #f00;}
-.absolute-center{margin: auto; position: absolute; top:0; left: 0;right: 0;bottom: 0;}
+.absolute-center{overflow: auto; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0;}
+
+.floatCenter{margin:20px auto; padding:10px 0; background:orange; overflow:hidden;/*解决IE7无法设置子元素宽度的BUG*/ position:relative;}
+.floatCenter .inner{float:left; position:relative; left:50%;} /* 多套一层的方式设置left:-50%，更合理，也可以避免一些不必要的IE BUG */
+.floatCenter .page{float:left; position:relative; left:-50%; }
+.floatCenter .page li{ float:left;margin:0 5px;}
+.floatCenter .page li a{display:block; padding:2px 9px; background:white; border:1px solid red; float:left;}
 </style>
 </head>
 <body>
@@ -25,6 +35,25 @@
         <div class="arrow-down"></div>
         <div class="arrow-left"></div>
         <div class="arrow-right"></div>
+    </div>
+    <div class="floatCenter clearfix">
+        <div class="inner">
+            <ul class="page">
+                <li> <a href="#">上一页</a> </li>
+                <li> <a href="#">1</a> </li>
+                <li> <a href="#">2</a> </li>
+                <li> <a href="#">3</a> </li>
+                <li> <a href="#">4</a> </li>
+                <li> <a href="#">2</a> </li>
+                <li> <a href="#">3</a> </li>
+                <li> <a href="#">2</a> </li>
+                <li> <a href="#">3</a> </li>
+                <li> <a href="#">4</a> </li>
+                <li> <a href="#">5</a> </li>
+                <li> <a href="#">6</a> </li>
+                <li> <a href="#">下一页</a> </li>
+            </ul>
+        </div>
     </div>
     <div id="absoluteCenter">
         <a href="http://blog.jobbole.com/46574/">CSS完美居中</a>
