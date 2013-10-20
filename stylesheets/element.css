@@ -129,3 +129,23 @@ html {
 .dairy-w .base-f i {
   margin-right: 10px;
 }
+.dairy-w .blog {
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 24px;
+}
+.dairy-w .blog .moreinfo {
+  padding-left: 10px;
+}
+
+.notFound h1 {
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #aa0000 s;
+}
+.notFound .base-s p {
+  color: #ff7f00;
+}
+.notFound .base-f i {
+  margin-right: 10px;
+}
