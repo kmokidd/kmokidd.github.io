@@ -134,6 +134,9 @@ html {
   font-size: 1.4rem;
   line-height: 24px;
 }
+.dairy-w .blog .explain {
+  padding-top: 10px;
+}
 .dairy-w .blog .moreinfo {
   padding-left: 10px;
 }
