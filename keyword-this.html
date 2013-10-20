@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./stylesheets/styles.css">
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="./stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="./stylesheets/element.css">
+  </head>
+  <body>
+    <div class="wrapper dairy-w">
+      <header class="base-h blog-title">
+        <h1>this的用法#js#</h1>
+        <time>2013/10/20</time>
+      </header>
+      <section class="base-s blog-s">
+        <article class="blog">
+          <p>今天在复习<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html">闭包</a>的相关知识的时候 发现自己对this的理解有不小的偏差 所以找来<a href="http://www.quirksmode.org/js/this.html">这篇</a>（也有Chinese Edition啦）看一看 这篇blog就作为"this"的笔记吧 算是一边学一边翻译啦</p>
+        </article>
+        <article class="blog">
+          <p class="explain">JavaScript中<strong>this</strong>总是指向正在执行的函数的所有者，或者指向将这个函数作为方法来调用的对象。我们在当前页面定义了doSomething()，那么doSomething()的所有者就是当前的页面，或者说是JavaScript的<strong>window</strong>对象(global object)。</p>
+          <pre>function doSomething() {
+   this.style.color = '#c00';
+}</pre>
+        </article>
+      </section>
+      <footer class="base-f">
+        <p class="view"><a href="./ps.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
+        <p class="view"><a href="./index.html"><i class="icon-home"></i><span class="words">Home</span></a></p>
+      </footer>
+    </div>
+  </body>
+</html>
