@@ -24,6 +24,34 @@
           <pre>function doSomething() {
    this.style.color = '#c00';
 }</pre>
+          <p class="explain"><strong>#传统事件注册#</strong>这个函数是直接定义在js中的，如果以function()的方式直接调用doSomething(),那么this就是指window，由于window没有style.color这个属性，call的结果就是报错。
+            如果是以<code>element.onclick = doSomething()</code>的方式调用doSomething()，那么this指的就是指element，此时doSomething()会产生一个copy，element实际上调用的是这个copy，原始的doSomething()在内存中，并没有被调用。
+            这样以后可以有很多的elements来call doSomething()，就会产生copies。每次调用的时候this都是指向当前调用它的元素。
+          </p>
+          <p class="explain"><strong>#行内事件注册#</strong>如下就是行内事件注册，html和js没有分离<code><element onclick='doSomething()'></code>这就不是对doSomething()的copy，而是直接指向doSomething()这个函数，即调用了这个函数，而没有实际等于这个函数。
+            它的意思就是“到doSomething()中去执行它”，所以实际上执行的doSomething()函数就是原始的函数，所以this在这里指的就是window。
+          </p>
+        </article>
+        <article class="blog">
+          <ol class="list">
+            <li class="list-item">
+              <h3 class="list-title"><i class="icon-num">1.</i>以下的this指向element/ copy了doSomething()</h3>
+              <pre>element.onclick = doSomething()</pre>
+              <pre>element.addEventListener('click',doSomething,false)</pre>
+              <pre>element.onclick = function () {this.style.color = '#cc0000';}</pre>
+              <pre>&lt;element onclick="this.style.color = '#cc0000';"&gt;</pre>
+              <pre>&lt;element onclick="doSomething(this)"&gt;
+function doSomething(obj) {
+   obj.style.color = '#cc0000';
+}</pre>
+            </li>
+            <li class="list-item">
+              <h3 class="list-title"><i class="icon-num">2.</i>以下的this指向window</h3>
+              <pre>element.onclick = function () {doSomething()}</pre>
+              <pre>element.attachEvent('onclick',doSomething)</pre>
+              <pre>&lt;element onclick="doSomething()"&gt;</pre>
+            </li>
+          </ol>
         </article>
       </section>
       <footer class="base-f">
