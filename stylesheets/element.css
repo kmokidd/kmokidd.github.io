@@ -126,6 +126,9 @@ html {
   margin-right: 20px;
 }
 
+.dairy-w a {
+  cursor: pointer;
+}
 .dairy-w .base-f i {
   margin-right: 10px;
 }
@@ -139,6 +142,9 @@ html {
 }
 .dairy-w .blog .moreinfo {
   padding-left: 10px;
+}
+.dairy-w .inner-one {
+  padding-left: 20px;
 }
 
 .notFound h1 {
