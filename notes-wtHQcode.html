@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./stylesheets/styles.css">
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="./stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="./stylesheets/element.css">
+  </head>
+  <body>
+    <div class="wrapper dairy-w">
+      <header class="base-h blog-title">
+        <h1>编写高质量代码#reading notes#</h1>
+        <time>2013/10/22</time>
+      </header>
+      <section class="base-s blog-s">
+        <article class="blog">
+          <p>@帝都时行之老师借我看的书 好不好看下<a href="http://book.douban.com/subject/4881987/">豆瓣评分</a>吧</p>
+          <p>反正我觉得挺好 CSS部分我从这本书里学到了很多 以下的内容 权当是看完以后的整理 以便日后使用</p>
+        </article>
+        <article class="blog">
+          <h2 class="blog-title">CSS部分</h2>
+          <ol class="list">
+            <li class="list-item">
+              <p><i class="icon-num">1. </i>h 标签应该是不出现断层的, 不能出现h1 h3 h4中间少了一个h2</p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">2. </i>ff下调试工具 web developer 可以查看页面语义化情况</p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">3. </i><strong>从语义化角度上考虑</strong> 在页面内标签无法满足需求时才加div和span</p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">4. </i>input标签要注意：
+                <ul class="list inner-one">
+                  <li class="list-item">
+                    <p><i class="icon-num">a. </i>input外 form内有fieldset标签</p>
+                  </li>
+                  <li class="list-item">
+                    <p><i class="icon-num">b. </i>这个fieldset的名字legend标签</p>
+                  </li>
+                  <li class="list-item">
+                    <p><i class="icon-num">c. </i>这个input框的名字label for="xxx"</p>
+                  </li>
+                  <li class="list-item">
+                    <p><i class="icon-num">c. </i>清除默认样式 fieldset border:none / legend display: none</p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">5. </i>table的使用场景：表示数据，画表格的时候该用table还是要用，只是<strong>布局的时候不应该用</strong>
+                <ul class="list inner-one">
+                  <li class="list">
+                    <p><i class="icon-num">a. </i>表头thead 主体tbody 表尾tfoot 表头中内容用th 主体中内容用td</p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">6. </i>CSS文件结构：base.css+common.css( 提供组件级css <strong>重用性</strong>)+page.css(单个页面的 如果页面简单就写一起)</p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">7. </i>命名问题：css要体现父级子级关系 所以class命名不能太简单 不好直接写成 .父级.子级{……} 要把class命名为 .谁写的_父级_子级{……} 这样在合作中不容易有冲突 加上“谁写的” 也保证了class名不会重复<a herf="http://www.qianduan.net/css-selectors-naming-2.html">这里</a>有些约定俗成的常见的选测器命名
+                <ul class="list inner-one">
+                  <li class="list">
+                    <p><i class="icon-num">a.</i>在base中 名称都是原子级的</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">b.</i>在common中 名称是 .父级_子级</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">c.</i>在page中 名称是 . 谁写的_父_子</p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">8.</i>public pravite思想: .父_子 父是公共的 子是某个sub私有的；base common是公共的 page是私有的<strong>多用组合 少用继承 [Design Pattern的思想]</strong>
+                <ul class="list inner-one">
+                  <li class="list">
+                    <p><i class="icon-num">a. </i>先观察模块的共同点 提取出来 作为公共的class</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">b. </i>不确定部分/不统一部分 分成小class运用</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">c. </i>尽量不要用标签选择器</p>
+                    <p class="explain inner-one">因为浏览器CSS匹配不是从左到右进行查找，而是从右到左进行查找,比如 <code>div#divBox p span.red{color:red;}</code>浏览器的查找顺序如下：先查找html中所有class='red'的span元素，找到后，再查找其父辈元素中是否有p元素，再判断p的父元素中是否有id为divBox的div元素，如果都存在则匹配上。</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">d. </i><a href="http://www.ruanyifeng.com/blog/2009/03/css_selectors.html">CSS选择器参考</a>&amp; <a herf="http://developer.51cto.com/art/201009/226852.htm">选择器定位</a></p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">9.</i>选择器优先级/ 权重问题
+                <p class="inner-one">权重尽量写低 后面好覆盖; 连用的时候相加 eg. p.class 权重为11; 权重高覆盖权重低 权重相同 就近远则</p>
+                <ul class="list inner-one">
+                  <li class="list">
+                    <p><i class="icon-num">a.</i>标签 权重：1</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">b.</i>class 权重：10</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">c.</i>id 权重：100</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">d. </i>!important 权重：最高</p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">10.</i>CSS Spirits
+                <ul class="list inner-one">
+                  <li class="list">
+                    <p><i class="icon-num">a. </i>背景合并 只有用于背景的图才能放入css spirite中；需要平铺的图片不能用</p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">b. </i>用于img标签的图片不能用CSS Spirits</p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-item">11. </i>CSS hack的三种形式
+                <ul class="list inner-one">
+                  <li class="list">
+                    <p><i class="icon-num">a.</i>IE条件注释：写在html页面中<code> &lt;!--[if IE 6]&gt;css代码/ js代码/ css文件…… &lt;![endif]--&gt;</code></p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">b.</i>选择符前缀
+                      <ul class="list inner-one">
+                        <li class="list"><code>*: IE6</code></li>
+                        <li class="list"><code>*+: IE7</code></li>
+                        <li class="list">
+                          <p>只对标签有效</p>
+                        </li>
+                        <li class="list">
+                          <p>不保证向后的浏览器识不识别</p>
+                        </li>
+                      </ul>
+                    </p>
+                  </li>
+                  <li class="list">
+                    <p><i class="icon-num">c.</i>样式属性前缀
+                      <ul class="list inner-one">
+                        <li class="list"><code>_: IE6</code></li>
+                        <li class="list"><code>*: IE6 IE7</code></li>
+                        <li class="list">
+                          <p>在css<strong>属性</strong>上体现</p>
+                        </li>
+                        <li class="list">
+                          <p>同样 向后兼容有问题</p>
+                        </li>
+                      </ul>
+                    </p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li class="list-item">
+              <p><i class="icon-num">12.</i>hover样式不出现问题：遵循LoVe HAte原则
+                <p class="inner-one">伪类的状态按照<code>:link </code><code>:visible </code><code>:hover</code><code>:active</code>的顺序来定义</p>
+              </p>
+            </li>
+          </ol>
+        </article>
+      </section>
+      <footer class="base-f">
+        <p class="view"><a href="./keyword-this.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
+        <p class="view"><a href="./index.html"><i class="icon-home"></i><span class="words">Home</span></a></p>
+      </footer>
+    </div>
+  </body>
+</html>
