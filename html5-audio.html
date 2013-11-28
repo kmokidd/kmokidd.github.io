@@ -41,6 +41,10 @@ GLOBAL.audio.currentTime = percentage*GLOBAL.audio.duration;</pre>
               <p>相同的问题再次出现了，所以先把老的办法试了一下，即替换成<code>document·getElementById('player');</code>的方式，但是这次奇迹没有发生，而且回头看前段时间做的player.html页面，再次不可以拖动了。</p>
               <p>后来在<a href="http://webcache.googleusercontent.com/search?q=cache:YTjbk6P8kcsJ:pervasivecode.blogspot.com/2012/09/currenttime-not-working-with-html5.html+&amp;cd=7&amp;hl=zh-CN&amp;ct=clnk&amp;gl=cn">这里</a>发现了问题所在。无法拖动的根本原因在无法改变audio的currentTime，要改变currentTime需要后台允许一个叫做<a href="http://www.web-polygraph.org/docs/userman/ranges.html">Http Range Requests</a>在stack overflow上有人教了怎么分辨server是不是支持Http Range Requests，详细请看<a href="http://stackoverflow.com/questions/720419/how-can-i-find-out-whether-a-server-supports-the-range-header">这里</a>简单来说就是，先把GET方法改成HEAD请求，然后如果是支持Http Range Requests的server，请求页面后返回的是206，否则就是返回正常的200。</p>
               <p>但是现在即使是后台支持了Http Range Requests，有些歌曲还是不能够拖动，但是有些又都可以，格式也都是mp3的。这个问题还要再看看啊，也许JS也应该做些什么？</p>
+              <mark>update 2013/11/28</mark>
+              <p>难道一个<code>audio.src</code>是不可以赋值给另一额<code>audio.src</code>的么？这个问题纠结了我一个下午依然没有得到解决，我把问题放到了 <a href="http://stackoverflow.com/questions/20244540/cannot-trigger-durationchange-of-html5-audio">stackover flow</a>上了，也写了个小例子放在<a href="http://jsfiddle.net/DTAve/9/">jsFilddle</a>上</p>
+              <p>可以确定的是问题出现在赋值语句上，而且是在server上运行才会出现这样的问题，在本地是不会的。不仅仅是赋值，即使是将两个<code>audio</code>指向同一个mp3地址都会出问题，在jsFilddle上的例子是最原始的<code>audio</code>是好的，在对新的audio操作之后，原始的audio依然可以用，而复制的两个audio是不可以用。</p>
+              <p>而在我的的project中的问题是，旧的audio是不可以听了，但是新的是可以的。所以和我模拟出来的bug场景是相反的。</p>
             </li>
           </ol>
         </article>
