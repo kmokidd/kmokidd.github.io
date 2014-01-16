@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./stylesheets/styles.css">
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="./stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="./stylesheets/element.css">
+  </head>
+  <body>
+    <div class="wrapper dairy-w">
+      <header class="base-h blog-title">
+        <h1>jQuery开发者眼中的AngularJS</h1>
+        <time>2014/01/16</time>
+      </header>
+      <section class="base-s blog-s">
+        <article class="blog">
+          <p>原文来自于<a href="http://www.artandlogic.com/blog/2013/03/angularjs-for-jquery-developers/">artandlogic.com</a></p>
+        </article>
+        <article class="blog">
+          <p>AngualrJS是一个很贴心的web应用框架。它有很不错的官方文档和示例；经过在现实环境中的测试<a href="(http://todomvc.com/">著名的TodoMVC project</a>，它在海量的框架中脱颖而出；而且网上到处都是很不错演示或者展示。但是对于一个没有接触过和AngularJS相似的框架而且还是几乎都在使用像jQuery这样的JavaScript类库的开发者来讲，要从jQuery的思想转变成AngularJS的思想是有点困难的。至少对于我来说是这样的，所以我想要分享一些学习笔记希望帮到一些开发者。</p>
+        </article>
+        <article class="blog">
+          <h3>Ng不是一个库(library)</h3>
+          <p>要理解AngularJS，第一件要做得事情就是要明白这是一个根本上就和jQuery不一样的工具。jQuery是一个库而AngularJS是一个框架。使用库是指，你的代码决定什么时候从库中调用一个特定的方法；使用框架则是，你实现了一些回调方法，到了特定的时候框架会去调用这些方法。</p>
+          <p>当你思考下在runtime的时候会发生什么以后你就可以理解这个不同点了。jQuery在与runtime的时候会发生什么？大部分情况下，什么时候都不会发生。jQuery代码的执行是作为触发了DOM事件上绑定的jQuery方法的响应。</p>
+          <p>在加载的时候，Angular会将你的DOM树和JavaScript转向一个angular app。包含着Angular指令和过滤器的HTML会被编译成一个视图树，响应的范围和控制器会被附加上这个树上，内部的应用循环确保了视图和模型之间的数据绑定。这是一个真正的MVC例子，视图控制器和模型之间是被彻底分离了。你可以认为主要的事件/渲染/绑定循环是一个例子，它持续在运行，只有在需要的时候才调用你的控制器。<img src="http://artandlogic.com/blog/wp-content/uploads/2013/03/angular-03.png" alt="sample" style="margin-top: 10px; display: inline-block; width: 500px; height: auto;"></p>
+          <p>每次模型被更新（可以是通过AJAX请求，也可以是直接操作控制器），Angular会重新运行它的$digest循环，更新数据绑定确保所有东西都是同步的。</p>
+        </article>
+        <article class="blog">
+          <h3>是声明，而不是命令</h3>
+          <p>不像有些库或者框架，Angualr从不把HTML或者JS当作一个需要修复的bug（我正看着你呢），而是用一个自然的方式让你都不能相信自己并没有在思考。这一点还是让我用代码告诉你吧。</p>
+          <p>举个例子，我们想要根据checkbox的状态隐藏/显示某一个元素。用jQuery，我们会这么做：
+            <pre>&lt;div&gt;
+   &lt;input id="toggleShowHide" type="checkbox"&gt;&lt;div id=”specialParagraph”&gt;
+   This content will disappear and reappear if you click the checkbox above
+&lt;/div&gt;
+&lt;script&gt;
+   $(function() {
+        function toggle() {
+           var isChecked = $('#toggleShowHide').is(':checked');
+           var specialParagraph = $('#specialParagraph');
+           if (isChecked) {
+               specialParagraph.show();
+           } else {
+               specialParagraph.hide();
+           }
+       }
+       $('#toggleShowHide').change(function() {
+           toggle();
+       });
+       toggle();
+   });
+&lt;/script&gt;</pre>
+          </p>
+          <p>注意！以上的JS代码是用一种命令的方式操作DOM：拿到某一个节点和某一个属性，查看它的值，然后做这做那。现在来看看Angular是怎么做相同的事情的：
+            <pre>&lt;input ng-model="showSpecial" type="checkbox"&gt;
+&lt;div ng-show=”showSpecial”&gt;
+   This content will disappear and reappear if you click the checkbox above
+&lt;/div&gt;</pre>
+          </p>
+          <p>就是上面那段，根本没有什么代码，只是一个非常清楚的声明绑定和规则的方式。<a href="http://jsfiddle.net/Y2M3r/">这里有个线上版本</a>，你可以来试试.</p>
+          <p>DOM的直接操作不仅是不必要的，它在Angular中是不被提倡的。DOM由视图管理，data在scope中，方法在控制器里，任何non-trivial的变换在你重写的过滤器和指令里。这样的分离在一开始看上去是要花大量精力去消化，但是当项目变大的时候，它的回报是很可观的：代码容易维护，容易被放入模块中，方便测试和查错。</p>
+        </article>
+        <article class="blog">
+          <h3>依赖注入</h3>
+          <p>原谅我这么说听起来有点固执了，但是Angular拥有全世界最优雅的处理数据依赖的方式。你有一个JSON的数据源被放在$resource在Angular中：
+            <pre>DataSource = $resource(url, default_params, method_details)</pre>
+          </p>
+          <p>如果要知道更多细节请看文档。任何需要这个JSON数据的控制器，可以通过将DataSource作为一个控制器参数传入的方式来使用它。这就是你需要做的全部事情。如果你需要在控制器中写一个异步的HTTP请求。将$http作为一个控制器参数。如果你需要在console中打印什么，将$log作为你的控制器方法的参数。</p>
+          <p>在Angular内部的流程是这样的：Angular分析你的代码，找到这些参数，然后将你的代码中所需要的服务推送给你。</p>
+        </article>
+        <article class="blog">
+          <h3>数据获取</h3>
+          <p>当Angular给了你控制模型层的全部自由以后（你可以随意结合普通数据变量，对象，和数组的时候）。它提供了一个便捷的方式与服务器的REST API交互。举个例子，下面这个方式是用来定义和使用一些来检索和保存用户记录的调用的。
+            <pre>var User = $resource('/user/:userId', {userId:'@id'});
+var user = User.get({userId:123}, function() {
+   user.abc = true;
+   user.$save();
+});</pre>
+          </p>
+          <p>Angular给获取，设置，删除和查询数据都预定义了合理的默认值设置，用参数表示的URL让你可以根据需求来制定数据获取的方式。</p>
+          <p>Angular还有很多值得一提但这篇文章还没有说的东西，比如表单验证，单元测试还有angular-ui库，也许在以后的文章里我会说一说的。</p>
+        </article>
+      </section>
+      <footer class="base-f">
+        <p class="view"><a href="./trans_multi-line-padded-text.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
+        <p class="view"><a href="./index.html"><i class="icon-home"></i><span class="words">Home</span></a></p>
+      </footer>
+      <script src="javascripts/scale.fix.js"></script>
+    </div>
+  </body>
+</html>
