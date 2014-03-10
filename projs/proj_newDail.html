@@ -24,26 +24,26 @@
           <p>这两天是把一个网站的数据用python简单地爬了一下，用了urllib2写了两行的爬虫，再用正则做了一次数据的过滤。写小蜘蛛的时候是看了<a href="http://blog.csdn.net/column/details/why-bug.html">Python爬虫入门教程</a>，一个SDU的学生写的，我觉得写的很不错，（孩儿还这么小就这么厉害哎哎哎）。然后Python的正则内容比较简单
             当然，这是相对于“正则表达式”这一整个概念来说的，我是看刚刚上面链接中的<a href="http://blog.csdn.net/pleasecallmewhy/article/details/8929576">Python中的正则表达式教程</a>，这个教程Google上一搜都是大同小异的东西。其实在写小爬虫的时候我并没有写好，才爬了5页多网站立马block了我，Error10056了，我爬的网站页数少就犯懒没有去解决= =，在上述链接的教程里有提供解决的方法</p>
           <pre>
-            import urllib2
-            import re
+import urllib2
+import re
 
-            headers = {
-                'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36',
-                'Referer':'http://www.alexa.com/topsites/countries'
-            }
+headers = {
+  'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36',
+  'Referer':'http://www.alexa.com/topsites/countries'
+}
 
-            fileHandle = open('website2.txt', 'a')
-            for i in range(0, 20): #这里是要去找url的规律，将url和页数联系在一起
-                url = "http://www.domain.com"+i
-                req = urllib2.Request(
-                    url = url,
-                    headers = headers)
-                pageContent = urllib2.urlopen(req).read()
-                result = re.findall(r'pattern', pageContent) #返回的是list 无法直接写入file
+fileHandle = open('website2.txt', 'a')
+for i in range(0, 20): #这里是要去找url的规律，将url和页数联系在一起
+  url = "http://www.domain.com"+i
+  req = urllib2.Request(
+      url = url,
+      headers = headers)
+  pageContent = urllib2.urlopen(req).read()
+  result = re.findall(r'pattern', pageContent) #返回的是list 无法直接写入file
 
-                for item in result: # 要一个个写入file
-                    fileHandle.write(item)
-            fileHandle.close()
+  for item in result: # 要一个个写入file
+      fileHandle.write(item)
+fileHandle.close()
           </pre>
           <p>另外今天看到一个练习git命令的网站，推荐给常常忘记git命令的人：<a href="http://try.github.io/levels/1/challenges/1">http://try.github.io/</a></p>
         </article>
