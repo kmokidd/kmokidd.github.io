@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./stylesheets/styles.css">
+    <link rel="stylesheet" href="./stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="./stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="./stylesheets/element.css">
+    <title>快点标签</title>
+  </head>
+  <body>
+    <div class="wrapper dairy-w">
+      <header class="base-h blog-title">
+        <h1>快点标签</h1>
+        <time>2014/03/10</time>
+      </header>
+      <section class="base-s blog-s">
+        <article class="blog">
+          <p>与xlg合作的第一个项目，其实很悲催地在去年10月就已经说好的东西这会子已经半年过去了，还木有个成品出来我太羞愧了。所以这个大四下我就奉献给快点标签啦，如果有一天它在Chrome APP store上成为“+1人数最多的新标签页插件”，这篇博文就是来让人膜拜的哇哈哈哈。</p>
+        </article>
+        <article class="blog">
+          <p>这两天是把一个网站的数据用python简单地爬了一下，用了urllib2写了两行的爬虫，再用正则做了一次数据的过滤。写小蜘蛛的时候是看了<a href="http://blog.csdn.net/column/details/why-bug.html">Python爬虫入门教程</a>，一个SDU的学生写的，我觉得写的很不错，（孩儿还这么小就这么厉害哎哎哎）。然后Python的正则内容比较简单
+            当然，这是相对于“正则表达式”这一整个概念来说的，我是看刚刚上面链接中的<a href="http://blog.csdn.net/pleasecallmewhy/article/details/8929576">Python中的正则表达式教程</a>，这个教程Google上一搜都是大同小异的东西。其实在写小爬虫的时候我并没有写好，才爬了5页多网站立马block了我，Error10056了，我爬的网站页数少就犯懒没有去解决= =，在上述链接的教程里有提供解决的方法</p>
+          <pre>
+            import urllib2
+            import re
+
+            headers = {
+                'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36',
+                'Referer':'http://www.alexa.com/topsites/countries'
+            }
+
+            fileHandle = open('website2.txt', 'a')
+            for i in range(0, 20): #这里是要去找url的规律，将url和页数联系在一起
+                url = "http://www.domain.com"+i
+                req = urllib2.Request(
+                    url = url,
+                    headers = headers)
+                pageContent = urllib2.urlopen(req).read()
+                result = re.findall(r'pattern', pageContent) #返回的是list 无法直接写入file
+
+                for item in result: # 要一个个写入file
+                    fileHandle.write(item)
+            fileHandle.close()
+          </pre>
+          <p>另外今天看到一个练习git命令的网站，推荐给常常忘记git命令的人：<a href="http://try.github.io/levels/1/challenges/1">http://try.github.io/</a></p>
+        </article>
+      </section>
+      <footer class="base-f">
+        <p class="view"><a href="./trans_user-_blank.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
+        <!-- <p class="view"><a href="./trans_multi-line-padded-text.html"><i class="icon-circle-arrow-right"></i><span class="words">Next</span></a></p> -->
+        <p class="view"><a href="./index.html"><i class="icon-home"></i><span class="words">Home</span></a></p>
+      </footer>
+      <script src="javascripts/scale.fix.js"></script>
+    </div>
+  </body>
+</html>
