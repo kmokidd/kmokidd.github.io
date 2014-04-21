@@ -143,6 +143,9 @@ html {
 .dairy-w .blog .moreinfo {
   padding-left: 10px;
 }
+.dairy-w .blog .conList p {
+  display: inline-block;
+}
 .dairy-w .inner-one {
   padding-left: 20px;
 }
