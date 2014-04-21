@@ -13,7 +13,7 @@
   <body>
     <div class="wrapper dairy-w">
       <header class="base-h blog-title">
-        <h1>>Music Editor&mdash;认真写次jQuery插件</h1>
+        <h1>Music Editor&mdash;认真写次jQuery插件</h1>
         <time>2014/04/21</time>
       </header>
       <section class="base-s blog-s">
@@ -31,10 +31,21 @@
           </ol>
         </article>
         <article class="blog">
-          <p>当这个剪辑器转成插件时，我想要这么做：</p>
+          <p>具体的实现可以看做是一个player&plus;多个临时生成的&lt;audio&gt;，当试听结束时这些临时的&lt;audio&gt;将会被移除。这些临时的当这个剪辑器转成插件时，我想要这么做：</p>
+          <ol class="conList">
+            <li><i class="icon-num">1.</i><p>本身的剪辑器有一套默认的CSS。提供了最基本的player、歌词还有缓存区（即上图中，剪辑完毕以后出现在页面偏下位置的一段矩形）。</p></li>
+            <li><i class="icon-num">2.</i><p>player是一个带有特定id的没有controls属性的&lt;audio&gt;标签，id可以由用户定义。同时还能配置是设置剪辑点的icon/别的什么东西（default是一把剪刀，样式可CSS使用者来覆盖）。</p></li>
+            <li><i class="icon-num">3.</i><p>允许删除剪辑出来的片段，或者更换片段的位置。这些也只会是单独的方法，可以绑定到任何DOM元素上。</p></li>
+            <li><i class="icon-num">4.</i><p>要在页面上展现音频的信息，那么一定就要有音频的数据的传递。所以音频的信息使用JSON来存放，JSON的格式是我已经定好，使用者需要遵循这个格式。</p></li>
+          </ol>
         </article>
         <article class="blog">
-          <p>再大致说说看现在的bug问题：</p>
+          <p>现在就是无插件版的还有很多bug，我已经没有考虑兼容问题了，但是CSS和JS依然bug多多，甚至还有没有实现的功能：</p>
+          <ol class="conList">
+            <li><i class="icon-num">1.</i><p>无法对同一首歌进行多次剪辑，这个涉及到HTML5 Audio API中的<code>currentTime</code>属性，在前面的post中提到过我是用控制音频的currentTime来实现只播放某个音频的特定区间的内容，这个是用来实现“试听”的。后来发现如果一个音频的currentTime被多次操作，就会出现各种神奇的问题。</p></li>
+            <li><i class="icon-num">2.</i><p>对于歌曲片段的操作还没有实现：就是更换片段的顺序，删除片段&hellip;&hellip;</p></li>
+            <li><i class="icon-num">3.</i><p>缓存区中的歌曲是会显示歌曲名字的，如果歌曲名字太长，样式就会乱掉</p></li>
+          </ol>
         </article>
       </section>
       <footer class="base-f">
