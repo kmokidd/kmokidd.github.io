@@ -144,10 +144,13 @@ html {
   padding-left: 10px;
 }
 .dairy-w .blog .conList p {
-  display: inline-block;
+  display: inline;
 }
 .dairy-w .inner-one {
   padding-left: 20px;
+}
+.icon-num{
+  margin-right: 3px;
 }
 
 .notFound h1 {
