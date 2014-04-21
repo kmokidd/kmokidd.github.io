@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Music Editor&mdash;认真写次jQuery插件</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/element.css">
+  </head>
+  <body>
+    <div class="wrapper dairy-w">
+      <header class="base-h blog-title">
+        <h1>>Music Editor&mdash;认真写次jQuery插件</h1>
+        <time>2014/04/21</time>
+      </header>
+      <section class="base-s blog-s">
+        <article class="blog">
+          <p>和<a href="/html5-audio.html">HTML5 audio API使用心得</a>相似，现在我正在进行Final Year Project II，准备将上个学期的Music网站中剪辑器的部分抽出来，作为一个jQ的插件，在完成以后也会发布到<a href="https://plugins.jquery.com/">jQ Plugin Registry</a>上。</p>
+          <p>理论性的笔记或者看到别人博客里面的一些经验准备记在<a href="http://app.yinxiang.com/shard/s20/sh/5aa34aeb-87a6-49a6-b801-6b906eb041d9/60a679495bb3a79c5e24911918ce44c6">印象笔记</a>上。而自己写代码时候的感悟或者积累出来的经验就放在这篇post中。</p>
+        </article>
+        <article class="blog">
+          <p>大致介绍一下现在的Music Editor已有的功能：</p>
+          <ol class="conList">
+            <li><i class="icon-num">1.</i><p>对给定列表中歌曲进行剪辑。点击列表中的歌曲进行播放。<img src="https://c1.staticflickr.com/3/2917/13936421172_d889a00f66_c.jpg" alt="musicEditor"></p></li>
+              <li><i class="icon-num">2.</i><p>在播放的同时，需要用户设置该歌曲需要剪辑的片段，所以需要设置歌曲的剪辑起始点和终止点。会根据这两个时间点来获取这首歌用户想要的区间，不过现在只能剪辑一个区间出来，因为剪辑点只能设置<strong>exactly</strong>两个，<img src="https://c1.staticflickr.com/3/2938/13936425251_afb17f2282_z.jpg" alt="controller"></p></li>
+              <li><i class="icon-num">3.</i><p>用户可以尝试将剪辑好的歌曲按照剪辑的先后顺序试听一遍。<img src="https://c2.staticflickr.com/6/5136/13960255623_cff09002c9.jpg" alt="editorBuffer"></p></li>
+              <li><i class="icon-num">4.</i><p>播放歌曲时显示歌词。<img src="https://c1.staticflickr.com/3/2917/13936421172_d889a00f66_c.jpg" alt="lyrics"></p></li>
+          </ol>
+        </article>
+        <article class="blog">
+          <p>当这个剪辑器转成插件时，我想要这么做：</p>
+        </article>
+        <article class="blog">
+          <p>再大致说说看现在的bug问题：</p>
+        </article>
+      </section>
+      <footer class="base-f">
+        <p class="view"><a href="/study/jsRules.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
+        <!-- <p class="view"><a href="/thoughts/internSum2014.html"><i class="icon-circle-arrow-right"></i><span class="words">Next</span></a></p> -->
+        <p class="view"><a href="/index.html"><i class="icon-home"></i><span class="words">Home</span></a></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
