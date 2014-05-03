@@ -49,6 +49,12 @@
             <li><i class="icon-num">3.</i><p>缓存区中的歌曲是会显示歌曲名字的，如果歌曲名字太长，样式就会乱掉</p></li>
           </ol>
         </article>
+        <article class="blog">
+          <mark>update 2014/05/03</mark>
+          <p>做歌词滚动的时候发现之前写的一直是有问题的，从前我用<code>overflow: auto</code>和固定高度来定出一块歌词区域，像这样<img src="https://c2.staticflickr.com/8/7433/14095937305_3667fbcca7_n.jpg" alt="originLRC">。效果就是出现局部的滚动条，好啦我知道滚动条的样式好丑。</p>
+          <p>按照lrc文件和currentTime做同步的时候，我是用<code>top</code>来控制整个lrc显示区域的移动的，之前一直没有发现歌词区域移动的情况不对：右侧滚动条不会滚动，滚动的文本，造成的结果就是，用户没法往上拉动滚动条，看不了已经唱过的歌词。</p>
+          <p>这么个蛋疼的问题我居然今天才发现= =|||，抓耳挠腮了半个小时，用jQuery的<code>animate</code>和<code>scrollTop</code>实现了移动的是滚动条而不是文本。</p>
+        </article>
       </section>
       <footer class="base-f">
         <p class="view"><a href="/study/jsRules.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
