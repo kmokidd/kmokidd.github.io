@@ -55,6 +55,28 @@
           <p>按照lrc文件和currentTime做同步的时候，我是用<code>top</code>来控制整个lrc显示区域的移动的，之前一直没有发现歌词区域移动的情况不对：右侧滚动条不会滚动，滚动的文本，造成的结果就是，用户没法往上拉动滚动条，看不了已经唱过的歌词。</p>
           <p>这么个蛋疼的问题我居然今天才发现= =|||，抓耳挠腮了半个小时，用jQuery的<code>animate</code>和<code>scrollTop</code>实现了移动的是滚动条而不是文本。</p>
         </article>
+        <article class="blog">
+          <mark>update 2014/06/30</mark>
+          <p>没有想到这一次更新这篇blog的时候我已经毕业了，祝我毕业快乐，下一站就是预期中的HKUST。这次更新这篇blog是因为我已经把这孩子发布到<a href="http://plugins.jquery.com/easyAuditor/">jQuery Plugin Repo</a>上了，我也很确定这个插件目前还是做得够烂的- -，毫无兼容性可言，我觉得未来一年里面我还会是不是回过头来看看她。</p>
+          <p>这次的更新就说一说发布插件到<a href="http://plugins.jquery.com/">jQuery Plugin</a>上的问题吧，在发布的时候遇到了一点小问题，但是最近Google一直无法搜索，百度也搜不到解决的办法，所以一直自己在找到底是哪里除了问题，后来解决的时候觉得自己太蠢了，所以现在只写发布插件这一块，希望如果之后有人遇到相同的问题，还能找到这里地方。</p>
+          <p>跟着<a href="http://plugins.jquery.com/docs/publish/">jQuery Plugin里面的发布步骤一步步来吧，一共3步，所以不要害怕。</a></p>
+          <ol>
+            <li><p>1. 首先你的代码已经在github上了吗？如果还没有放到github上的，先把它们放上去吧</p>
+              <p>当代码在你的某一个repo中的时候，进入这个repo，你会看到和下面这张图片很相似的页面对吧？注意一下页面上红框中的内容。<img src="https://c2.staticflickr.com/4/3867/14345437498_07e1510338_z.jpg" alt="publish jQuery Plugin-s1-0"></p>
+              <p>你要做的第一件事就是<strong>点击右侧的Settings</strong>，去添加jQuery Plugin service hook到你的插件repo中，添加了这个hook就是使得你的插件repo可以和jQuery plugin repo联系起来。</p>
+              <p>点击Settings，页面跳转后你会看到左侧有几个button可以点击，点击第三个'Webhooks & Services'，而后应该要看到<img src="https://c2.staticflickr.com/4/3870/14532006915_9e96ddd2ba_c.jpg" alt="publish jQuery Plugin-s1-1">，还是请注意红框，现在要添加的就是jQuery Plugin service，然后激活它。</p>
+              <p>遵照这两个张图的做法就可以了，一般这一步不会有什么问题的：<img src="https://c1.staticflickr.com/3/2909/14345402249_7f0cf7b7b6_c.jpg" alt="publish jQuery Plugin-s1-2"><img src="https://c1.staticflickr.com/3/2927/14508897236_7075f4e61b_z.jpg" alt="publish jQuery Plugin-s1-3"></p>
+            </li>
+            <li><p>2. 第二步就是要写一个Manifest，还记得第一张图其中一个红框里有个xxxx.jquery.json吗？</p>
+                <p>那个就是你的plugin的Manifest文件，Manifest是记录插件基本信息的文件，jQuery对这个文件是有<a href="http://plugins.jquery.com/docs/package-manifest/">要求</a>的，一定要看一下Manifest的具体要求，有些值是必须的。这张是我的Manifest（还是注意红框中的内容哦）：<img src="https://c1.staticflickr.com/3/2901/14528762041_624f3a1813.jpg" alt="publish jQuery Plugin-s2-0"></p>
+                <p>写完Manifest以后还要去<a href="http://plugins.jquery.com/docs/publish/">jQuery的Pulish页面</a>检测是否是合法的Manifest文件，如果是合法的会看到提示的：<img src="https://c2.staticflickr.com/4/3863/14531127452_db8059ab17_b.jpg" alt="publish jQuery Plugin-s2-1"></p>
+                <p>然后将Manifest推送到github上。<strong>做下面的步骤之前一定要先推送哦！</strong></p>
+            </li>
+            <li><p>3. 终于到了最后一步，非常简单，为你的plugin打上一个tag吧。</p>
+              <p>还记得上文里的Manifest截图中的红框吗？这里要说的就是tag和Manifest的version一定要统一，而且执行完<code>git push origin --tags</code>以后，绝对不可以去修改这个tag，删除然后重新<code>git tag</code>是不可以的，通常会出错，我3周前就是卡在了这里，好吧…当时我也忘了把Manifest一起push上去= =。</p>
+            </li>
+          </ol>
+        </article>
       </section>
       <footer class="base-f">
         <p class="view"><a href="/study/jsRules.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
