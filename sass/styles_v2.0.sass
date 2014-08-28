@@ -1,0 +1,92 @@
+// variables
+$h1FS: 28px
+$h2FS: 24px
+$h3FS: 20px
+$h4FS: 18px
+
+$contentFS: 18px
+$articleFS: 14px
+$timeFS: 12px
+
+$headCLR: #aaa
+$contentCLR: #666
+$articleCLR: #333
+$linkCLR: #008CAF
+$linkOnCLR: #10489B
+$fakeOnCLR: #333
+$timeCLR: #999
+// end variables
+
+
+// functions
+@mixin fontSize($ieFS, $webkitFS)
+  font-size: $ieFS
+  font-size: $webkitFS
+// end functions
+
+  
+html,
+body
+  background-color: #FFF
+
+// common part
+.blogV2-wrapper
+  width: 680px
+  margin: 0 auto
+  padding-top: 80px
+
+#blogV2-head
+  width: 100%
+  overflow: hidden
+  padding-bottom: 10px
+  border-bottom: 1px solid $headCLR
+  h1
+    float: left
+    margin: 0
+    &:hover
+      a
+        color: $fakeOnCLR
+    a
+      color: $headCLR
+      font-size: $h1FS
+  #blogV2-nav
+    float: right
+    margin: 0
+    li
+      display: inline-block
+      margin-left: 12px
+    a
+      color: $headCLR
+      font-size: $h4FS
+    .on, li:hover
+      a
+        color: $fakeOnCLR
+// end common part
+
+
+/* page styles */
+// index styles
+#blogV2-content
+  padding-top: 20px
+  ul
+    margin: 0
+    padding: 0
+  li
+    margin-bottom: 12px
+  .content-title
+    font-size: $contentFS
+    color: $linkCLR
+    &:hover
+      color: $linkOnCLR
+  .push-time
+    margin-left: 10px
+    font-size: $timeFS
+    color: $timeCLR
+// end index styles
+
+
+
+
+/* end page styles */
+
+// mobile

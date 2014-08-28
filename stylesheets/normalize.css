@@ -7,9 +7,10 @@
  */
 
 html {
-  font-family: sans-serif; /* 1 */
+  font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif; /* Win Mac, en zh */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  font-size: 62.5%; /*to use rem*/
 }
 
 /**
@@ -86,6 +87,7 @@ template {
 
 a {
   background: transparent;
+  text-decoration: none;
 }
 
 /**
@@ -422,4 +424,10 @@ table {
 td,
 th {
   padding: 0;
+}
+
+/* List
+   ========================================================================== */
+ul li{
+  list-style-type: none;
 }
