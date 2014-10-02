@@ -1,36 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Beginning</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./stylesheets/styles.css">
-    <link rel="stylesheet" href="./stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="./stylesheets/normalize.css">
     <link rel="stylesheet" href="./stylesheets/font-awesome.min.css">
-    <link rel="stylesheet" href="./stylesheets/element.css">
+    <link rel="stylesheet" href="./stylesheets/styles_v2.0.css">
   </head>
   <body>
-    <div class="wrapper dairy-w">
-      <header class="base-h blog-title">
-        <h1>Beginning</h1>
-        <time>2013/10/16</time>
+    <section class="blogV2-wrapper">
+      <header id="blogV2-head">
+        <h1><a href="https://github.com/kmokidd">@kmokidd</a></h1>
+        <ul id="blogV2-nav">
+          <li class="on"><a href="./index.html">Archives</a></li>
+          <li><a href="">Projects-ing</a></li>
+          <li><a href="./aboutMe.html">About</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
       </header>
-      <section class="base-s blog-s">
-        <article class="blog">
+      <nav id="blogV2-archives-nav">
+        <a href="" class="prev disabled"><i class="icon icon-circle-arrow-left"></i>Prev/前篇</a>
+        <a href="./initvalue.html" class="next">Next/后篇<i class="icon icon-circle-arrow-right"></i></a>
+      </nav>
+      <section id="archives-post">
+        <h2 class="post-title">Beginning
+          <time class="push-time">2013/10/16</time>
+        </h2>
+        <article class="post-content">
           <p>我要坦白 如果不是在投豆瓣的简历 估计我会到了寒假才来弄Gitpage的╮(╯_╰)╭</p>
           <p>这里就是我记录平常记录一些前端知识或者折腾一些别的东西的地方 这么烦后台的我 也许总有一天也会老老实实面对Python吧 到时候 就可以又看到前端又看到后端啦</p>
           <p>其实平时也都有在积累 只是全都放在 <a href="https://evernote.com/">Evernote</a>上面 就好像翻译英文文档一样 自己看是一回事 真正开始翻译的时候就会发现 能把脑子里的句子组成别人也能理解的话 是一件很艰难的事情 在大CST混迹快4年的我 描述能力似乎悲剧了不少</p>
           <p>所以现在也顺便锻炼锻炼自己的描述能力吧 ~\(≧▽≦)/~</p>
         </article>
       </section>
-      <footer class="base-f">
-        <p class="view"><a href="./initvalue.html"><i class="icon-circle-arrow-right"></i><span class="words">Next</span></a></p>
-        <p class="view"><a href="./index.html"><i class="icon-home"></i><span class="words">Home</span></a></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+    </section>
   </body>
 </html>

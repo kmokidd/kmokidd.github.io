@@ -6,7 +6,9 @@ $h4FS: 18px
 
 $contentFS: 18px
 $articleFS: 14px
+$articleLH: 24px
 $timeFS: 12px
+$navFS: 14px
 
 $headCLR: #aaa
 $contentCLR: #666
@@ -15,6 +17,8 @@ $linkCLR: #008CAF
 $linkOnCLR: #10489B
 $fakeOnCLR: #333
 $timeCLR: #999
+
+$disabledColor: #ccc
 // end variables
 
 
@@ -28,6 +32,11 @@ $timeCLR: #999
 html,
 body
   background-color: #FFF
+
+a
+  color: #008CAF
+  &:hover
+    color: $linkOnCLR
 
 // common part
 .blogV2-wrapper
@@ -87,6 +96,35 @@ body
 
 
 // archives styles
+#archives-post
+  padding-top: 15px
+  .post-title
+    font-size: $contentFS
+  .push-time
+    margin-left: 10px
+    font-size: $timeFS
+    color: $timeCLR
+  .post-content
+    font-size: $articleFS
+    line-height: $articleLH
+
+#blogV2-archives-nav
+  overflow: hidden
+  padding-top: 15px
+  .prev, .next
+    font-size: $navFS
+  .prev
+    float: left
+    .icon
+      margin-right: 5px
+  .next
+    float: right
+    .icon
+      margin-left: 5px
+  .disabled
+    color: $disabledColor
+    cursor: default
+
 // end archives styles
 
 
