@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JS规范 学习记录</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Beginning</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
     <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
-    <link rel="stylesheet" href="/stylesheets/element.css">
+    <link rel="stylesheet" href="/stylesheets/styles_v2.0.css">
   </head>
   <body>
-    <div class="wrapper dairy-w">
-      <header class="base-h blog-title">
-        <h1>JS规范学习记录</h1>
-        <time>2014/04/20</time>
+    <section class="blogV2-wrapper">
+      <header id="blogV2-head">
+        <h1><a href="https://github.com/kmokidd">@kmokidd</a></h1>
+        <ul id="blogV2-nav">
+          <li class="on"><a href="">Archives</a></li>
+          <li><a href="">Projects-ing</a></li>
+          <li><a href="./aboutMe.html">About</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
       </header>
-      <section class="base-s blog-s">
-        <article class="blog">
+      <nav id="blogV2-archives-nav">
+        <a href="/study/nodeJS.html" class="prev"><i class="icon icon-circle-arrow-left"></i>Prev/前篇</a>
+        <a href="/projs/jqp_musicEditor.html" class="next">Next/后篇<i class="icon icon-circle-arrow-right"></i></a>
+      </nav>
+      <section id="archives-post">
+        <h2 class="post-title">JS规范学习记录
+          <time class="push-time">2014/04/20</time>
+        </h2>
+        <article class="post-content">
           <p>在看各种博客的时候就会看到类似于<a href="http://www.commonjs.org/">CommonJS</a>、<a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition">AMD</a>还有<a href="http://wiki.commonjs.org/wiki/Promises">Promises</a>之类的东西，一直都很好奇这些到底是什么东西。</p>
           <p>也曾经试图Google或者wiki或者百科去了解这些规范。但是过去找到的资料都非常难理解，简直像<a href="http://book.douban.com/subject/1885170/">算法导论</a>里面的文字，冗长的无法理解。直到N周以前忘了在哪里找到<a href="http://www.cnblogs.com/snandy/">Snandy</a>，看了里面几篇讲这些规范的博文，觉得说的很好也很容易理解，现在就M在自己的Page上。</p>
           <p>其中我比较仔细看了下面的几篇：</p>
-          <ol>
+          <ol class="ordered-list">
             <li><i class="icon-num">1.</i> 应该要先看<a href="http://www.cnblogs.com/snandy/archive/2012/03/08/2378441.html">JavaScript中模块“写法”</a>，好歹知道那些个规范是用来规范什么的。</li>
             <li><i class="icon-num">2.</i> 然后我看了<a href="http://www.cnblogs.com/snandy/archive/2012/03/12/2390782.html">AMD：浏览器中的模块规范</a>，这篇才是找到这个博客的源头。</li>
             <li><i class="icon-num">3.</i> 最近因为各种琐事导致Node的学习暂停了，也知道这样太糟糕，需要尽快重新开始，所以今天下午就要continue！是不是应该去豆瓣小组上搞个签到呢唉QAQ。<a href="http://www.cnblogs.com/snandy/archive/2012/03/09/2386092.html">Node.js模块风格在浏览器中的尝试</a>。</li>
             <li><i class="icon-num">4.</i> 其实JS的匿名函数我一直没弄清楚，写是一件是弄清又是另一件事：<a href="http://www.cnblogs.com/snandy/archive/2011/02/28/1966664.html">Javascript中匿名函数的多种调用方式</a>。</li>
-            <li></li>
           </ol>
         </article>
       </section>
-      <footer class="base-f">
-        <p class="view"><a href="/study/nodeJS.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
-        <p class="view"><a href="/projs/jqp_musicEditor.html"><i class="icon-circle-arrow-right"></i><span class="words">Next</span></a></p>
-        <p class="view"><a href="/index.html"><i class="icon-home"></i><span class="words">Home</span></a></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+    </section>
   </body>
 </html>
