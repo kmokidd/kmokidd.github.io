@@ -65,6 +65,22 @@ body, html
    right: 0
    overflow: auto</pre>
             </li>
+            <li>
+              <p><i class="icon-num">3.</i>CSS3提供了<code>display: box</code>现在似乎更加流行的使用flex-box，但是作为box都用不清楚的人...要做到垂直居中一样要<code>body,html{height: 100%;}</code>, 这个属性还没有被W3C正式加入(?!)，所以使用的时候还需要加上浏览器的prefix。</p>
+              <pre>
+body, html
+  height: 100%
+  .img-wrapper
+    height: 100%
+    display: -webkit-box
+    -webkit-box-orient: horizontal
+      -webkit-box-pack: center
+     -webkit-box-align: center
+    display: box
+    box-orient: horizontal
+    box-pack: center
+    box-align: center</pre>
+            </li>
           </ol>
         </article>
       </section>
