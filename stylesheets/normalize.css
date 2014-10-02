@@ -7,7 +7,7 @@
  */
 
 html {
-  font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif; /* Win Mac, en zh */
+  font-family: "Microsoft YaHei", Georgia, "Times New Roman", "微软雅黑", STXihei, "华文细黑", serif; /* Win Mac, en zh */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
   font-size: 62.5%; /*to use rem*/
