@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>无高度元素完全居中</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/styles_v2.0.css">
+  </head>
+  <body>
+    <section class="blogV2-wrapper">
+      <header id="blogV2-head">
+        <h1><a href="https://github.com/kmokidd" title="go to kmokidd's github">@kmokidd</a></h1>
+        <ul id="blogV2-nav">
+          <li class="on"><a href="/index.html">Archives</a></li>
+          <li><a href="">Projects-ing</a></li>
+          <li><a href="./aboutMe.html">About</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </header>
+      <nav id="blogV2-archives-nav">
+        <a href="/notes-wtHQcode.html" class="prev"><i class="icon icon-circle-arrow-left"></i>Prev/前篇</a>
+        <a href="/projs/html5-audio.html" class="next">Next/后篇<i class="icon icon-circle-arrow-right"></i></a>
+      </nav>
+      <section id="archives-post">
+        <h2 class="post-title">无高度元素完全居中
+          <time class="push-time">2013/10/27</time>
+        </h2>
+        <article class="post-content">
+          <p>参考自<a href="http://www.cnblogs.com/rubylouvre/archive/2010/07/08/1774025.html">此处</a>以及<a href="https://www.google.com.hk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0CCoQFjAA&amp;url=http%3a%2f%2fblog%2ejobbole%2ecom%2f46574%2f&amp;ei=p9BvUtjTJMHKkgWzg4DAAw&amp;usg=AFQjCNHXkxJ43RHgaXpTknYzib5Li05jyA&amp;sig2=MLrzpA61T3VNuFKSVOU9ag">此处</a>实现方法多种，这里只记下三种，一个是传统方法，一个是技巧性高，还有一个是CSS3.</p>
+          <ol class="ordered-list">
+            <li><i class="icon-num">1.</i>这种是传统方法，未知高度的元素外嵌套两层，同时要定义<strong>body</strong>和<strong>html</strong>的height，这样的目的主要是为了做到垂直居中。如果未知高度的元素是width固定的话，用<code>margin: 0 auto</code>就可以水平居中了，非块级的话还要加上<code>display: inline-block || block</code></p>
+            <pre>
+body, html
+   height: 100%
+.noHeight-wrapper
+   width: 100%
+   height: 100%
+   overflow: hidden
+   position: relative
+   display: table
+   .noHeight-inner
+       display: table-cell
+       vertical-align: middle
+       .noHeight
+           display: block
+           position: relative
+           top: -50%
+           margin: 0 auto
+            </pre>
+            </li>
+            <li>
+              <p><i class="icon-num">2.</i>下面这样是传说中的“CSS完美居中”，主要是利用<code>position：absolute; top: 0; left:0; right: 0; bottome:0</code>来实现的，但是这个未知高度的元素至少需要定义一个<code>min-height: 1px；</code>具体的实现原理请参考文章开头的reference.</p>
+              <pre>
+.noHeight
+   margin: auto
+   min-height: 1px
+   position: absolute
+   top: 0
+   left: 0
+   bottom: 0
+   right: 0
+   overflow: auto</pre>
+            </li>
+          </ol>
+        </article>
+      </section>
+    </section>
+  </body>
+</html>
