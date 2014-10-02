@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>NodeJS学习记录</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
     <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
-    <link rel="stylesheet" href="/stylesheets/element.css">
+    <link rel="stylesheet" href="/stylesheets/styles_v2.0.css">
   </head>
   <body>
-    <div class="wrapper dairy-w">
-      <header class="base-h blog-title">
-        <h1>NodeJS学习记录</h1>
-        <time>2014/03/21</time>
+    <section class="blogV2-wrapper">
+      <header id="blogV2-head">
+        <h1><a href="https://github.com/kmokidd" title="go to kmokidd's github">@kmokidd</a></h1>
+        <ul id="blogV2-nav">
+          <li class="on"><a href="/index.html">Archives</a></li>
+          <li><a href="">Projects-ing</a></li>
+          <li><a href="./aboutMe.html">About</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
       </header>
-      <section class="base-s blog-s">
-        <article class="blog">
+      <nav id="blogV2-archives-nav">
+        <a href="/projs/proj_newDail.html" class="prev"><i class="icon icon-circle-arrow-left"></i>Prev/前篇</a>
+        <a href="/study/jsRules.html" class="next">Next/后篇<i class="icon icon-circle-arrow-right"></i></a>
+      </nav>
+      <section id="archives-post">
+        <h2 class="post-title">NodeJS学习记录
+          <time class="push-time">2014/03/21</time>
+        </h2>
+        <article class="post-content">
           <p>我是相信这个世界会是前端的天下的，所以现在就跟上步伐学习NodeJS咯</p>
           <p>伯乐在线上有一个<a href="http://blog.jobbole.com/17174/">针对 Node.js 初学者的入门资源汇总</a>，我准备按照这个思路来学一学NodeJS，不过学语言从来都是和项目挂钩的，希望在学习的过程里我能想到一个idea把学的东西都串在一起。</p>
-        </article>
-        <article class="blog">
           <p>不得不说<a href="http://www.nodebeginner.org/index-zh-cn.html">nodebeginner.org</a>非常的好用，即使是我这个几乎没写过后端的人，对nodeJS也会有个简单又概括性的印象，所以这开始的第一步非常正确。</p>
           <p>现在要看的写的就是<a href="http://www.lvtao.net/book/node.js.htm">七天学会NodeJS</a>，我对“七天”这个时间还是很嗤之以鼻的，不过整理的还是蛮好的，比起nodebeginner来说，它介绍的内容更深入，也自然更跳跃一些。</p>
         </article>
       </section>
-      <footer class="base-f">
-        <p class="view"><a href="/projs/proj_newDail.html"><i class="icon-circle-arrow-left"></i><span class="words">Prev</span></a></p>
-        <p class="view"><a href="/study/jsRules.html"><i class="icon-circle-arrow-right"></i><span class="words">Next</span></a></p>
-        <p class="view"><a href="/index.html"><i class="icon-home"></i><span class="words">Home</span></a></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+    </section>
   </body>
 </html>
