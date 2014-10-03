@@ -5,6 +5,7 @@ $h3FS: 20px
 $h4FS: 18px
 
 $contentFS: 18px
+$contentTitleFS: 16px
 $articleFS: 14px
 $articleLH: 24px
 $timeFS: 12px
@@ -38,16 +39,26 @@ a
   &:hover
     color: $linkOnCLR
 
+code
+  display: inline-block
+  border: 1px solid #ccc
+  background: #eee
+  font-size: 12px
+  line-height: 16px
+  margin: 0 2px
+  padding: 0 2px
+
 // common part
 .blogV2-wrapper
   width: 680px
   margin: 0 auto
-  padding-top: 80px
+  padding: 80px 0 40px
 
 #blogV2-head
   width: 100%
   overflow: hidden
   padding-bottom: 10px
+  margin-bottom: 15px
   border-bottom: 1px solid $headCLR
   h1
     float: left
@@ -98,6 +109,7 @@ a
 // archives styles
 #archives-post
   padding-top: 15px
+  color: $contentCLR
   .post-title
     font-size: $contentFS
   .push-time
@@ -107,10 +119,22 @@ a
   .post-content
     font-size: $articleFS
     line-height: $articleLH
+  .post-content-title
+    font-size: $contentTitleFS
+  .ordered-list
+    list-style-type: none
+    padding: 0
+    li
+      padding-bottom: 10px
+      &:last-child
+        padding-bottom: 0
+    .icon-num
+      margin-right: 5px
+    img
+      display: block
 
 #blogV2-archives-nav
   overflow: hidden
-  padding-top: 15px
   .prev, .next
     font-size: $navFS
   .prev
@@ -127,6 +151,14 @@ a
 
 // end archives styles
 
+// about-me styles
+#aboutMe
+  font-size: $articleFS
+  line-height: $articleLH
+  .basic
+    margin: 0
+    padding: 0
+// end about-me styles
 
 
 /* end page styles */
