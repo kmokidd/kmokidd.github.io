@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>module.exports VS. exports</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/stylesheets/normalize.css">
+  <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/styles_v2.0.css">
+</head>
+<body>
+  <section class="blogV2-wrapper">
+    <header id="blogV2-head">
+      <h1><a href="https://github.com/kmokidd" title="go to kmokidd's github">@kmokidd</a></h1>
+      <ul id="blogV2-nav">
+        <li class="on"><a href="/index.html">Archives</a></li>
+        <li><a href="">Projects-ing</a></li>
+        <li><a href="/aboutMe.html">About</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </header>
+    <nav id="blogV2-archives-nav">
+      <a href="/share/sass-intro.html" class="prev"><i class="icon icon-circle-arrow-left"></i>Prev/前篇</a>
+      <a href="#" class="next disabled">Next/后篇<i class="icon icon-circle-arrow-right"></i></a>
+    </nav>
+    <section id="archives-post">
+      <h2 class="post-title">module.exports VS. exports
+        <time class="push-time">2015/12/06</time>
+      </h2>
+      <article class="post-content">
+        <p>重新激活这里，现在要进行一个 21-day-push plan，所以估计会很经常更新这里，也准备把博客迁移到一个 amazon 的服务器上，折腾一下后台 nodejs、python 或者 ruby or whatever。</p>
+        <p>这些都是后话，这篇要记录一下 nodejs old topic：module.exports 和 exports 的区别。</p>
+      </article>
+      <article class="post-content">
+        <mark>如果想直接知道我的结论，看这一段就可以了</mark>
+        <ol class="ordered-list">
+          <li><i class="icon-num">1.</i>如果想要暴露<strong>一个且只有一个</strong>对象，那么就使用<code>module.exports = 你的对象名</code></li>
+          <li><i class="icon-num">2.</i>如果想要暴露的是各种方法，那么使用<code>exports.方法名 ＝ 你的方法名</code></li>
+          <li><i class="icon-num">3.</i>如果已经使用了<code>module.exports = xxx</code>，那么是没有办法再使用<code>exports.xxx=xxx</code>的</li>
+        </ol>
+      </article>
+      <article class="post-content">
+        <mark>好的，现在才是解释。</mark>
+        <p>首先在<a href="">这篇文章中</a>说了一个观点，原文是<q>if you want your module to be of a specific object type, use module.exports; if you want your module to be a typical module instance, use exports.</q></p>
+        <p>这个意思呢，就是说如果想要创建一个全新的 object，换句话说就是一个全新的数据类型（类似于 c 的struct），那么应该用<code>module.exports</code>；如果是想提供一个模块实例，那么就使用<code>exports</code>。</p>
+        <p>讲真，对于 exports 的使用我还是摸不着头脑，但是好歹 module.exports 的用法我算是明白了，看了 npm 上一些 lib 的代码，也可以发现大部分情况下，大家用的还是 module.exports。</p>
+        <p>module.exports 的用法其实是在模块内部用原型链实现对象的方法的。这样在调用对象的时候，可以通过原型链的方式，调用到它的方法。ok，这边是我的理论理解，明天要重写一下代码验证这一点。而且想要用 ES6 的方法重写它。</p>
+      </article>
+      <article class="post-content">
+        <p>exports 其实是 module 的一个属性，如果<code>module.exports</code>被使用了，那么再使用<code>exports.xxx</code>的时候，就会被认为这是一个全新的对象，调用的这样的方法会报<code>undefined</code>错误。</p>
+        <p>ok，也就是说这两个东西不能同时使用啦。</p>
+        <p>好的，如果一定要使用的话，就这么用：</p>
+        <pre>
+module.exports = {
+  func1: function(){...},
+  func2: function(){...}
+};
+
+// 以上等价于👇 ？？待验证
+exports.func1 = function(){...};
+exports.func2 = function(){....};
+        </pre>
+      </article>
+
+      <article class="post-content">
+        <p>好吧，我突然发现博客是很有意义的事情，让我知道了，特么原来还有这么多知识漏洞要补。</p>
+      </article>
+    </section>
+  </section>
+</body>
+</html>
