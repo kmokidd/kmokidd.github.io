@@ -43,7 +43,7 @@
       </article>
       <article class="post-content">
         <mark>好的，现在才是解释。</mark>
-        <p>首先在<a href="">这篇文章中</a>说了一个观点，原文是<q>if you want your module to be of a specific object type, use module.exports; if you want your module to be a typical module instance, use exports.</q></p>
+        <p>首先在<a href="http://www.hacksparrow.com/node-js-exports-vs-module-exports.html">这篇文章中</a>说了一个观点，原文是<q>if you want your module to be of a specific object type, use module.exports; if you want your module to be a typical module instance, use exports.</q></p>
         <p>这个意思呢，就是说如果想要创建一个全新的 object，换句话说就是一个全新的数据类型（类似于 c 的struct），那么应该用<code>module.exports</code>；如果是想提供一个模块实例，那么就使用<code>exports</code>。</p>
         <p>讲真，对于 exports 的使用我还是摸不着头脑，但是好歹 module.exports 的用法我算是明白了，看了 npm 上一些 lib 的代码，也可以发现大部分情况下，大家用的还是 module.exports。</p>
         <p>module.exports 的用法其实是在模块内部用原型链实现对象的方法的。这样在调用对象的时候，可以通过原型链的方式，调用到它的方法。ok，这边是我的理论理解，明天要重写一下代码验证这一点。而且想要用 ES6 的方法重写它。</p>
@@ -58,15 +58,31 @@ module.exports = {
   func2: function(){...}
 };
 
-// 以上等价于👇 ？？待验证
+// 以上等价于👇
 exports.func1 = function(){...};
 exports.func2 = function(){....};
         </pre>
+        <p>或者这么使用</p>
+        <pre>
+// 然而我并不明白干嘛要这么写，用 module.exports 或者 exports 二者之一就好啦
+var exports = module.exports = {...};
+        </pre>
       </article>
-
+      <article class="post-content">
+        <p>另外，看 API 中还有一些额外的信息：</p>
+        <p><code>module.exports</code>不能写在<code>setTimeout</code>或者<code>setInterval</code>之类的里面，模块的导出是即时的。</p>
+        <p>然后官方说了句特别简单粗暴直白好懂的话，<q>As a guideline, if the relationship between exports and module.exports seems like magic to you, ignore exports and only use module.exports.</q>，大白话就是，要是你不知道要用啥，那就用<code>moduel.exports</code>。[doge笑]</p>
+      </article>
       <article class="post-content">
         <p>好吧，我突然发现博客是很有意义的事情，让我知道了，特么原来还有这么多知识漏洞要补。</p>
       </article>
+    <article class="post-content">
+      <h3>[参考资料]</h3>
+      <ol class="ordered-list">
+        <li><i class="icon-num">1.</i><a href="http://www.hacksparrow.com/node-js-exports-vs-module-exports.html">Node.js Module – exports vs module.exports</a></li>
+        <li><i class="icon-num">2.</i><a href="http://liangzan.net/blog/blog/2012/06/04/how-to-use-exports-in-nodejs/">How to Use Exports in NodeJS</a></li>
+      </ol>
+    </article>
     </section>
   </section>
 </body>
