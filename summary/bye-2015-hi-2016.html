@@ -32,9 +32,9 @@
         <p>先说2015，首先这是非常特别永远不会忘记的一年，暂别学生时代（也许将来会继续学业，话不可以说死），正式踏入成人世界。</p>
         <p>分几块来总结吧：</p>
         <ol>
-          <li>技术上（或者说工作上）</li>
-          <li>兴趣上</li>
-          <li>软实力上</li>
+          <li><i class="icon-num">1. </i>技术上（或者说工作上）</li>
+          <li><i class="icon-num">2. </i>兴趣上</li>
+          <li><i class="icon-num">3. </i>软实力上</li>
         </ol>
       </article>
       <article class="post-content">
@@ -46,9 +46,33 @@
       </article>
       <article class="post-content">
         <h3>技术上/工作上 2015 年的总结</h3>
-        <p>好，现在是认真地在说了。</p>
-        <p>工作半年，前3个月是试用期，后3个月是正式员工。在时间分界线的时候，我答了个辩，为什么要特别提到这件事情。因为在答辩的时候，用了一句很感动自己的台词：“为了让我的名字出现在借记卡上，我看了好多好多的书”。</p>
+        <p>项目做了很多，但是值得拿出来说一说的却只有几个。</p>
+        <ol>
+          <li><i class="icon-num">1. </i><h3>企鹅 FM 鬼节盗墓笔记活动页</h3>
+            <p>这是第一个主动要求承担的需求，毕竟是盗墓笔记看了800遍的哥嫂粉。虽然真正在做需求的时候内心一直在呐喊“这页面和《盗墓笔记》有毛关系啊”，但是因为很喜欢活动页的设计，还有页面上各种各样的效果，还是做得非常非常开心。最重要的是，点亮了一些重要的技能：<strong> animation</strong>、<strong>页面兼容</strong>、<strong>CSS3 3D</strong>。也踩到了一些坑：<strong>安卓上伪元素动画失效</strong>。具体的总结可以看<a href="http://isux.tencent.com/spirit-festival-act-summary.html">这篇文章</a>。</p>
+            <p>念书的时候，我会收集业界前端团队的招聘信息，比如UED啦、奇舞团啦还有当年非常非常想要进的CDC，再有就有ISUX。自然也会看每个团队的技术文章。到有一天，我自己的文章被发布在这个平台上。那种心情，只有“为了让我的名字出现在借记卡上，我看了好多好多的书”可以形容。</p>
+            <p>所以啊，这个项目对我来说，意义非凡。</p>
+          </li>
+          <li><i class="icon-num">2. </i><h3>企鹅FM 管理端</h3>
+            <p>这是一个 PC 项目，这是腾讯大老板的 PC 项目，这是用户量随随便便就很大的项目，所以要兼容到 IE7。虽然我严苛的导师大人差点（失去理智）要我兼容到 IE6，但在坚决表示“我不下模拟器”最终还是算了。</p>
+            <p>很久没有接触 PC 端的项目了，不能用 <code>flexbox</code> 来布局，真 的 很 不 爽。回归到传统的 <code>float</code>、<code>table</code>还有多行文本垂直居中。期间还遇到了 IE7 下的几个<strong>绝对定位相关的坑</strong>：
+              <ol>
+                <li><i class="icon-num">1. </i>如果在 position: relative的层上没有设置 z-index，则内部的pos:abs 也会出现问题</li>
+                <li><i class="icon-num">2. </i>如果 position: relative 层上没有设置px高度或者它是100%高度但父级没有设置px高度，那这层内部的 absolute 层无法用 tblr0 来撑开</li>
+              </ol>
+            </p>
+            <p>还有一些其他的总结，都放在了自己的 <a href="http://app.yinxiang.com/l/ABQI3-k89thGO45_-1obuIse-ZsYQwOEWrE/">evernote</a> 上了。</p>
+          </li>
+          <li><i class="icon-num">3. </i><h3>微云签到活动</h3>
+          </li>
+        </ol>
+          <p>在还是动画小新手的时候，我真的有牢记<a href="http://isux.tencent.com/spirit-festival-act-summary.html">动效原则</a>，但后来好像随着页面越写越多，就渐渐忘记要坚守的原则了。</p>
 
+      </article>
+
+
+      <article class="post-content">
+        <h3>2016 年的计划</h3>
       </article>
 
       <article class="post-content">
