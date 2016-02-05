@@ -2,7 +2,7 @@
 layout: post
 title:  "再见 2015，你好 2016"
 date:   2016-02-05 14:43
-categories: jekyll update
+categories: summary
 ---
 
 从学生时代跨越到正式工作的 2015 年，这样的人生片段记性糟糕不在意过往如我，估计也会记上一辈子吧。
