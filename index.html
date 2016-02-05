@@ -1,92 +1,23 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>JZ</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
-  <link rel="stylesheet" href="/stylesheets/styles_v2.0.css">
-</head>
-<body>
-  <section class="blogV2-wrapper">
-    <header id="blogV2-head">
-      <h1><a href="https://github.com/kmokidd" title="go to kmokidd's github">@kmokidd</a></h1>
-      <ul id="blogV2-nav">
-        <li class="on"><a href="/index.html">Archives</a></li>
-        <li><a href="">Projects-ing</a></li>
-        <li><a href="/aboutMe.html">About</a></li>
-        <li><a href="">Contact</a></li>
-      </ul>
-    </header>
-    <section id="blogV2-content">
-      <ul>
-        <li>
-          <a href="/study/module-exports-vs-exports.html" class="content-title">module.exports VS exports</a>
-          <time class="push-time">2015/12/06</time>
-        </li>
-        <li>
-          <a href="/share/sass-intro.html" class="content-title">Hi Sass</a>
-          <time class="push-time">2015/02/06</time>
-        </li>
-        <li>
-          <a href="/summary/bye-2014-hi-2015.html" class="content-title">白白2014，你好呀2015</a>
-          <time class="push-time">2015/01/09</time>
-        </li>
-        <li>
-          <a href="/study/whenFeWhenAdroid.html" class="content-title">当前端遇上安卓</a>
-          <time class="push-time">2014/12/01</time>
-        </li>
-        <li>
-          <a href="/study/gulp-note.html" class="content-title">Gulp使用小记</a>
-          <time class="push-time">2014/10/06</time>
-        </li>
-        <li>
-          <a href="/summary/all-intern-2014.html" class="content-title">大学完结篇之实习</a>
-          <time class="push-time">2014/07/21</time>
-        </li><li>
-          <a href="/projs/jqp_musicEditor.html" class="content-title">Music Editor&mdash;认真写次jQuery插件</a>
-          <time class="push-time">2014/04/21</time>
-        </li>
-        <li><a class="content-title" href="/study/jsRules.html">JS规范 学习记录</a>
-            <time class="push-time">2014/04/20</time>
-        </li>
-        <li><a class="content-title" href="/study/nodeJS.html">NodeJS 学习记录</a>
-            <time class="push-time">2014/03/21</time>
-        </li>
-        <li><a class="content-title" href="/projs/proj_newDail.html">快点标签小心得</a>
-            <time class="push-time">2014/03/10</time>
-        </li>
-        <li><a class="content-title" href="/summary/winter-intern-2014.html">寒假实习总结</a>
-            <time class="push-time">2014/02/16</time>
-        </li>
-        <li><a class="content-title" href="/translation/trans-multi-line-padded-text.html">[翻译]multi-line padded text</a>
-            <time class="push-time">2013/12/31</time>
-        </li>
-        <li><a class="content-title" href="/projs/html5-audio.html">HTML5 audio API使用心得</a>
-            <time class="push-time">2013/11/28</time>
-        </li>
-        <li><a class="content-title" href="/study/css-noheight-center.html">无高度元素完全居中</a>
-            <time class="push-time">2013/10/27</time>
-        </li>
-        <li><a class="content-title" href="/summary/rn-write-high-quality-code.html">[读书笔记]编写高质量代码</a>
-            <time class="push-time">2013/10/22</time>
-        </li>
-        <li><a class="content-title" href="/study/keyword-this.html">this的用法整理</a>
-            <time class="push-time">2013/10/21</time>
-        </li>
-        <li><a class="content-title" href="/study/ps.html">PS基本用法</a>
-            <time class="push-time">2013/10/20</time>
-        </li>
-        <li><a class="content-title" href="/study/initvalue.html">CSS基础整理</a>
-            <time class="push-time">2013/10/20</time>
-        </li>
-        <li><a class="content-title" href="/beginning.html">Hello World</a>
-            <time class="push-time">2013/10/17</time>
-        </li>
-      </ul>
-    </section>
-  </section>
-</body>
-</html>
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
