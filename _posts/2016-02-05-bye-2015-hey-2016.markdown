@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "再见 2015，你好 2016"
+title:  "bye 2015, hey 2016"
 date:   2016-02-05 14:43
-categories: summary
+categories: jekyll update
 ---
 
 从学生时代跨越到正式工作的 2015 年，这样的人生片段记性糟糕不在意过往如我，估计也会记上一辈子吧。
@@ -100,3 +100,9 @@ WebGL 是 2015 年的目标，之前看到朋友圈里分享的用 webgl 实现�
 
 
 好了，新年快乐。
+
+
+
+[jekyll]: http://jekyllrb.com
+[jekyll-gh]: https://github.com/jekyll/jekyll
+[jekyll-help]: https://github.com/jekyll/jekyll-help
