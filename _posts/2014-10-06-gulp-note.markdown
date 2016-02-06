@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "gulp-note"
+date:   2014-10-06 
+categories: study
+---
+
+
+
+之前Grunt用的心力交瘁，都是配置给闹到。大学时候我们得出的结论就是，辛苦的不是写程序，而是配置环境啊。所以现在用起了Gulp。
+
+对于没有接触过Gulp的你，可以先看[这里](https://github.com/minghe/Gulp.js-demo/blob/master/README.md)。其实[Github](http://gulpjs.com/)我也很喜欢，但是要看中文才会爽啊！
+
+其实一开始是在看[SVG Sprite的文章](http://www.zhangxinxu.com/wordpress/2014/07/introduce-svg-sprite-technology/)，在[CSS-tricks](http://css-tricks.com/svg-sprites-use-better-icon-fonts/)上也有类似的post，看到一半还挺高兴的，但是张老师说到合并SVG的时候说“对于一些妹子上面的偏开发需编译的工具插件对她们就很吃力”，这边的工具说的就是Grunt的一个合并SVG的插件。然后为了像自己证明不是一个不热爱的编程的人，就去Gulp找相关的插件。一不小心就拐到了另一个之前用Grunt就很喜欢的[livereload](https://github.com/gruntjs/grunt-contrib-livereload)上。所以一个上午都在折腾Gulp下的[livereload](https://github.com/vohof/gulp-livereload)。
+
+在gulp-livereload的github上也说的很清楚了，但是要记得要装上一个浏览器插件才能使用这个功能，这块可以看[这里](https://cnodejs.org/topic/53427d16dc556e3b3901861e)，但是这个链接里面的代码我觉得有问题，不要用，用github上的比较好。
+
+livereload是基于一个本地server的，我想上述的浏览器插件相当于是server的response界面，这个界面是基于35729端口。所以说本地还要再启动一个server，我的Gist里有一段[server.js的代码](https://gist.github.com/kmokidd/15b9b9a6b1e32c15e9b5)，不知道是从哪里来的，应该是师傅写的我想，这个server是`localhost`的，如果想要其他设备也能访问，请自行修改查询IP地址的那种。（在北京明明是改好的，不知道为什么回来之后就不能用了，也没有管到底怎么了-///-）
+
+然后启动gulp task和浏览器插件，再加上本地服务器，就能实时更新你想要监听的页面啦~
+
+悲伤的发现！！我登不上Flickr了……要短信验证，身在HK的我怎么可能用内地的号码啊，魂淡，那就先用豆瓣吧，目录结构在此：![](https://c4.staticflickr.com/8/7476/15302678893_50cb2dd7d0_z.jpg)
+
+P.S. 一个上午的源头其实在[gulp-svgstore这里](https://github.com/w0rm/gulp-svgstore)。
+
